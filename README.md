@@ -4,5 +4,5 @@ Task hari ini :
 1. Login => Done
 2. Register => Done
 
-3. CRUD users/account => ? (read users, update users, delete users)
+3. CRUD users/account => Done
 # meteor_crud
