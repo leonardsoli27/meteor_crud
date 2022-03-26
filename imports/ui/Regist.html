@@ -1,0 +1,21 @@
+<template name="regist">
+    <form class="regist-form">
+        <div>
+            <h2>REGIST</h2>
+        </div>
+        <div>
+            <label htlmFor="username">Username</label>
+            <input type="text" placeholder="Username" name="usernameRegist" required />
+        </div>
+        <div>
+            <label htmlFor="password">Password</label>
+            <input type="password" placeholder="Password" name="passwordRegist" required />
+        </div>
+        <div>
+            <button type="submit">Regist</button>
+        </div>
+        <div>
+            <p>Have account? <a class="login" href="{{pathFor route='login'}}">Sign In</a>.</p>
+        </div>
+    </form>
+</template>

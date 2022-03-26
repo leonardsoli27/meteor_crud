@@ -1,0 +1,67 @@
+<template name="daftar">
+    <header>
+        <div class="app-bar">
+            <div class="app-header">
+                <h1>📝️ Data Users {{incompleteCount}}</h1>
+            </div>
+        </div>
+    </header>
+
+    {{#if isUserLogged}}
+    <div class="user">
+        {{ getUser.username }} 🚪
+    </div>
+    <div class="judul">
+        <h2><b>Daftar User</b></h2>
+    </div>
+    <div class="table">
+        <table border="1" align="center">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Username</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody class="users">
+                {{#each users}}
+                <tr>
+                    <th scope="row">1</th>
+                    <td>{{ username }}</td>
+                    <td class="tombol">
+                        <a href="{{ pathFor route='editUser' _id=_id }}"><button class="editUser"><b>I</b></button></a>
+                        <a href=""><button class="deleteUser">&times;</button></a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    {{else}}
+    <div class="main">
+        <div class="kembali">
+            <h1>Maaf Anda Belum Login</h1>
+            <h3><a href="{{pathFor route='login'}}">Kembali Ke Halaman Login</a>.</h3>
+        </div>
+    </div>
+    {{/if}}
+
+</template>
+
+<template name="editUser">
+    <form class="edit-form">
+        <div>
+            <h2>Edit User</h2>
+        </div>
+        <div>
+            <label htlmFor="user">Username</label>
+            <input type="text" placeholder="Username" name="username" value="{{ editUser.username }}" required />
+        </div>
+        <div>
+            <button class="updateUser" type="submit">Edit</button>
+        </div>
+        <div>
+            <b><a class="login" href="{{pathFor route='daftar'}}">Kembali</a></b>
+        </div>
+    </form>
+</template>

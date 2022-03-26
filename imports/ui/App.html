@@ -1,0 +1,58 @@
+<body>
+    <!-- {{> mainContainer }} -->
+</body>
+
+<template name="mainContainer">
+    <div class="app">
+        <div class="main">
+            {{>yield}}
+        </div>
+    </div>
+</template>
+
+<template name="home">
+
+    <header>
+        <div class="app-bar">
+            <div class="app-header">
+                <h1>📝️ To Do List {{incompleteCount}}</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="main">
+        {{#if isUserLogged}}
+        <div class="user">
+            {{ getUser.username }} 🚪
+        </div>
+        {{> form }}
+        <div class="filter">
+            <button id="hide-completed-button">
+                {{#if hideCompleted}}
+                Show All
+                {{else}}
+                Hide Completed
+                {{/if}}
+            </button>
+        </div>
+        <ul class="tasks">
+            {{#each tasks}}
+            {{> task}}
+            {{/each}}
+        </ul>
+        {{else}}
+        <div class="kembali">
+            <h1>Maaf Anda Belum Login</h1>
+            <h3><a href="{{pathFor route='login'}}">Kembali Ke Halaman Login</a>.</h3>
+        </div>
+        {{/if}}
+    </div>
+
+</template>
+
+<template name="form">
+    <form class="task-form">
+        <input type="text" name="text" placeholder="Type to add content" />
+        <button type="submit">Add Task</button>
+    </form>
+</template>
